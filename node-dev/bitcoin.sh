@@ -1,5 +1,8 @@
 mkdir -p bitcoin-source && cd bitcoin-source
 git clone https://github.com/bitcoin/bitcoin.git
+
+sudo add-apt-repository universe
+sudo apt-get update
 sudo apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3
 sudo apt-get install -y libboost-all-dev
 
@@ -13,7 +16,6 @@ git checkout 0.17
 ./autogen.sh
 
 sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt-get update
 sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
 
 ./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2" LDFLAGS="-L${BDB_PREFIX}/lib/" --with-gui
