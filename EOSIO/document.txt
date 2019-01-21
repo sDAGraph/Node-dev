@@ -1,0 +1,52 @@
+STEPS TO BUILD EOSIO CONTRACT :
+
+1. Install binaries
+
+1.1 wget https://github.com/eosio/eos/releases/download/v1.5.0/eosio_1.5.0-1-ubuntu-18.04_amd64.deb
+1.2 sudo apt install ./eosio_1.5.0-1-ubuntu-18.04_amd64.deb
+
+2. Setup a development directory, stick to it.
+
+2.1 mkdir contracts
+2.2 cd contracts
+
+3. Get the path of that directory
+
+3.1 pwd  //remember it
+
+4.Boot Node and Wallet
+
+4.1 keosd &
+4.2 nodeos -e -p eosio \
+    --plugin eosio::producer_plugin \
+    --plugin eosio::chain_api_plugin \
+    --plugin eosio::http_plugin \
+    --plugin eosio::history_plugin \
+    --plugin eosio::history_api_plugin \
+    --data-dir /home/varsha/Varsha/contracts/eosio/data \
+    --config-dir /home/varsha/Varsha/contracts/eosio/config \
+    --access-control-allow-origin='*' \
+    --contracts-console \
+    --http-validate-host=false \
+    --verbose-http-errors \
+    --filter-on='*' >> nodeos.log 2>&1 &
+4.3 tail -f nodeos.log
+4.4 cleos wallet list
+4.5 curl http://localhost:8888/v1/chain/get_info
+
+5. Install the CDT
+5.1 wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.4.1/eosio.cdt-1.4.1.x86_64.deb
+5.2 sudo apt install ./eosio.cdt-1.4.1.x86_64.deb
+
+6. Install from Source
+6.1 cd /home/varsha/Varsha/contracts  /// address from step 3.1
+
+7. Download
+7.1 git clone --recursive https://github.com/eosio/eosio.cdt --branch v1.4.1 --single-branch
+7.2 cd eosio.cdt
+
+8. Build
+8.1 ./build.sh
+8.2 sudo ./install.sh
+
+
