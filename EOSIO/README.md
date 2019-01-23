@@ -3,6 +3,7 @@ STEPS TO BUILD AND DEPLOY EOSIO TOKEN SMART CONTRACT :
 1. Install binaries
 
 	1.1 wget https://github.com/eosio/eos/releases/download/v1.5.0/eosio_1.5.0-1-ubuntu-18.04_amd64.deb
+	
 	1.2 sudo apt install ./eosio_1.5.0-1-ubuntu-18.04_amd64.deb
 
 2. Setup a development directory, stick to it.
