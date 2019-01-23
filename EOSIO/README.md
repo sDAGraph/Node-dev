@@ -126,13 +126,13 @@ STEPS TO BUILD AND DEPLOY EOSIO TOKEN SMART CONTRACT :
 
 	13.9 In this case "alice" is the one who authorized it and user is just an argument. Modify the contract so that the authorizing user, "alice" in this case, must be the same as the user the contract is responding "hi" to. Use the require_auth method. This method takes an name as a parameter, and will check if the user executing the action matches the provided paramter.
 
-	void hi( name user ) {
+		void hi( name user ) {
 
-   		require_auth( user );
+   			require_auth( user );
 
-   		print( "Hello, ", name{user} );
+   			print( "Hello, ", name{user} );
 
-	}
+		}
 
 	Recompile the contract: eosio-cpp -o hello.wasm hello.cpp --abigen
 
@@ -176,7 +176,7 @@ STEPS TO BUILD AND DEPLOY EOSIO TOKEN SMART CONTRACT :
 
 15. Transfer Tokens
 
-cleos push action eosio.token transfer '[ "alice", "bob", "25.0000 SYS", "m" ]' -p alice@active
+	cleos push action eosio.token transfer '[ "alice", "bob", "25.0000 SYS", "m" ]' -p alice@active
 
 	15.1 check if bob got the token
 
@@ -201,7 +201,7 @@ DEPLOY AND RUN SMART CONTRACT ON EOS TESTNET:
 	"private", "5K3ygQFKAyzXsKDw3U3Mhssqyh6GCdGhkF5WFCXjxZ48ZSUZapV"}, "owner_key": { "public", "EOS8gyTni5gW9ARtnYxKBpxX94dZMXTa7yYBsUvopeDG2tXUtpCfm", " private ":" 5Kix3SeySDs3XKrqy93zt1mbAwHADApUQxCowrdggs8q1Sjgney "}},
 " account ":" suniltestacc "}
 
-	Save this string somewhere. You will need keys to deploy Smart Contract.
+Save this string somewhere. You will need keys to deploy Smart Contract.
 
 6. To confirm your account is created:
 	cleos -u https://api.kylin.alohaeos.com:443 get account suniltestacc
@@ -228,10 +228,10 @@ DEPLOY AND RUN SMART CONTRACT ON EOS TESTNET:
 	This will return :
 
 	Reading WASM from /home/varsha/Varsha/contractstest/hello/hello.wasm...
-Publishing contract...
-executed transaction: c5f17ed57878585c36935cf5ca116a6456e990846468bdf19472a00b4936d389  1456 bytes  288 us
-#         eosio <= eosio::setcode               {"account":"suniltestacc","vmtype":0,"vmversion":0,"code":"0061736d0100000001390b60027f7e006000017f6...
-#         eosio <= eosio::setabi                {"account":"suniltestacc","abi":"0e656f73696f3a3a6162692f312e31000102686900010475736572046e616d65010...
+	Publishing contract...
+	executed transaction: c5f17ed57878585c36935cf5ca116a6456e990846468bdf19472a00b4936d389  1456 bytes  288 us
+	eosio <= eosio::setcode               {"account":"suniltestacc","vmtype":0,"vmversion":0,"code":"0061736d0100000001390b60027f7e006000017f6...
+        eosio <= eosio::setabi                {"account":"suniltestacc","abi":"0e656f73696f3a3a6162692f312e31000102686900010475736572046e616d65010...
 
 	11.2 If you get error the error of insufficent RAM, you need ram to deploy. Use command to buy RAM:
 
@@ -248,7 +248,7 @@ EXECUTING OUR EOS SMART CONTRACT:
 	This will return transaction hash:
 
 	executed transaction: 66384f68c8bf2a8ff8a3e49efe59a0f023ea8e43449dc40393b18a5d0c4ab059  104 bytes  159 us
-	#  suniltestacc <= suniltestacc::hi             {"user":"bobmarley"}
+	suniltestacc <= suniltestacc::hi             {"user":"bobmarley"}
 
 
 
