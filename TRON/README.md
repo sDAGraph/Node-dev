@@ -34,3 +34,4 @@
 ## 6. TRON explorer
     https://tronscan.org/#/
 
+https://github.com/tronprotocol/Documentation/blob/master/TRX_CN/Tron-doc.md
