@@ -1,0 +1,7 @@
+# STEPS TO BUILD AND DEPLOY bitcore:
+
+##1.https://bitcoin.org/en/full-node#ubuntu-1604
+
+##2.https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+##3.https://github.com/bitpay/bitcore
