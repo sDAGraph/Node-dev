@@ -1,0 +1,44 @@
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
+
+git clone https://github.com/OmniLayer/omnicore
+cd omnicore/
+
+./autogen.sh
+./configure
+make
+
+mkdir /home/administrator/omnidata && cd /home/administrator/omnidata
+vim bitcoin.conf
+
+cd src/
+./omnicored --datadir=/home/administrator/omnidata
+
+
+#./configure	//錯誤
+#error:
+configure: error: libdb_cxx headers missing, Omni Core requires this library for wallet functionality (--disable-wallet to disable wallet functionality)
+
+#solve:
+sudo apt-get remove --purge python-apt
+sudo apt-get install python-apt -f
+sudo find / -name "apt_pkg.cpython-35m-x86_64-linux-gnu.so"
+cd /usr/lib/python3/dist-packages/
+sudo cp apt_pkg.cpython-35m-x86_64-linux-gnu.so apt_pkg.cpython-36m-x86_64-linux-gnu.so 
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
+//============================================
+#error2:
+configure: error: No working boost sleep implementation found.
+
+#solve2:
+sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+//============================================
+
+
+
+
+
+官方流程:https://github.com/OmniLayer/omnicore
+安裝流程:https://cdz1129.github.io/2019/01/24/usdt%E9%92%B1%E5%8C%85Linux%E5%AE%89%E8%A3%85/
+RPC:https://github.com/OmniLayer/omnicore/blob/master/src/omnicore/doc/rpc-api.md#omni_getbalance
