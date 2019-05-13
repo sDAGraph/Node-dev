@@ -9,7 +9,8 @@ Browsers don't have the require method defined, but Node.js does. With Browserif
 > npm install -g browserify
 
 ### Create js file as main.js
-```const Web3 = require('web3');
+```
+const Web3 = require('web3');
 const web3 = new Web3('https://kovan.infura.io');
 web3.eth.getBalance('0x9E632F36D8193a23ee76e7C14698aCF4b92869A2').then(console.log)
 ```
